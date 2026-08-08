@@ -1,5 +1,7 @@
 # Bank Auth JWT / JWE
 
+GitHub: https://github.com/Amygdala2
+
 Demo auth-сервис для банковского сценария: регистрация и логин, access token как **JWT** (подпись HS256), refresh token как **JWE** (шифрование RSA-OAEP-256 + A256GCM).
 
 
