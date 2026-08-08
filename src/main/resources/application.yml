@@ -1,0 +1,62 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bank-auth-jwt-jwe
+  datasource:
+    url: jdbc:h2:mem:bank_auth;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+
+auth:
+  jwt-secret: ${AUTH_JWT_SECRET:change-me-demo-jwt-secret-32chars-min}
+  access-token-minutes: 15
+  refresh-token-days: 7
+  jwe-private-key-pem: |
+    -----BEGIN PRIVATE KEY-----
+    MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCKpRGACdNELPpC
+    1YHWTPDeXrAOGx1MVCQFaLhdi70eHDubdVQjcE7cpUQT8mdVQlXf+pUyyrh/kkR2
+    8htecHJYrfJqXtPFYLcgFnfFr5y7vDof56+H7KtZDpSgMrygU/zCzlkeiDz4fRAo
+    6m3AaLow8YaFIDEOaciTrLEjjwhsyZJEGAGTDgnfgUXqkyH3n1dcorqaO304DcZV
+    F8iatKL7J1YT36CzILhLFXEi4skSACUzCThK8YJfpENATraUEZLTz5KCz3JQGU+B
+    Fl1G/pSDbx2NEUXjmWVm9jV5ghW4zthmnk51nHk3i7rzlf+GaTpi2OKa9hcPB+od
+    +1+wG/gRAgMBAAECggEAA3yDJCUbGuvGn0efLDRjGjRnWPN1mSXEgh5QBIovB0L
+    OfOpGY12/nezJ+XZvAsXYQvmaJtzSJuMWtacA6S8KsRAuuF4KFTyJXlUyTdZMqqv
+    hCkxZLaHV7TdgpWahN6blBEEMHKhwYA9FCMJcYCpCBFkOeOqGUUZ3tL7y9WHzZEj
+    j2XgRzNTRLIJ1FyARJ9yrgFSpqoAZoD/z87XWzDVg/GYqixko28P5YLFDhiyUHM8
+    sfIiSBdsyvPo2Kqgs8mIKD6cekVHMECQ3ijXQiWcYaYGSVH1Sbk4Kjhuh7Jf3fzB
+    r20XbKcW1glgjKSK6OG3c+mB2Eta2XoHKd5I9zRaHwQKBgQDDbcb1AzD7XE5XH1N
+    1CZ2eDkla8uHdEtdSOJq4lVQLHPRHylZUj+1S8pLfAUYROJpH4E32sfbyzghQNU
+    Rwxt7MDr2HIad7vuzY0pZc4Y6Wpz+b2DrROu4Qiciw1ukpLocYbFjoUWjzUjK+05
+    uhy9kYhDQCiaP2/P+3JR0gOF6wzwKBgQC1nckVvg8TRvwBMFm6nFM4h30aMQR6z
+    zhJSjDd/oPTPgU9UGrbhxw6XlA1A8VfZo6sSAESnmGdNh8wbDrM3ES6FGvL7sTz
+    x89PKLKGuz4AQImhE1aflzKne0jaWPu0v7rZgDf41wRpThn+aaBeeyvf9+VtOZZJ
+    gxg0ANX1AkBBHwKBgQCYVWDJqaQruwcB2FRInac0BfTeJQc0OTSITcEk8pmhU/+C
+    WlEy90HJ73XWyPpiABoavthm3NAe8cT/KJZhxlLzAuZviCcySV/7nyM/4T4xZss
+    pYsJuR548W/qJBeyXgkIiIoqnBJZnXIJbxzzAQNLHzn1wIPQjWZDGpPJwJCCDdw
+    KBgQCXm2OlFscW3Ia5p1cABEckRVYVax3GNv1RkPFCH5iD2p4dFOhe4WabAugJm
+    WBFxyMKhgD/Pd9WkTtv/KkJIkbs3uctkeAvcHiKJ/r/pYaYR0ecgrwo9NqAHNYw
+    D1/u/q5HqlUPEM7J6TyhuCL7O+7gQ9vtVckzDJBDuP7iTEK/GQKBgG8GgTPa0DE
+    OqMTQanfff1ebaJKwG/vHfoY7PMPunpQaak2K+S2XuaSo9HrVwP0yPbcq6sRcEk
+    kZGYo8MGLiDnHqP4rdeGzwk8AoH7xVLnHmRCiIkL23E0/qX4G/QNs9/VEYpTxSU
+    Fvc7VkGG1kXCp2cYTs/DfUvMwqgstWMMiw4
+    -----END PRIVATE KEY-----
+  jwe-public-key-pem: |
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiqURgAnTRCz6QtWB1kzw
+    3l6wDhsdTFQkBWi4XYu9Hhw7m3VUI3BO3KVEE/JnVUJV3/qVMsq4f5JEdvIbXnB
+    yWK3yal7TxWC3IBZ3xa+cu7w6H+evh+yrWQ6UoDK8oFP8ws5ZHog8+H0QKOptw
+    Gi6MPGGhSAxDmnIk6yxI48IbMmSRBgBkw4J34FF6pMh959XXKK6mjt9OA3GVRf
+    ImrSi+ydWE9+gsyC4SxVxIuLJEgAlMwk4SvGCX6RDQE62lBGS08+Sgs9yUBlPgR
+    ZdRv6Ug28djRFF45llZvY1eYIVuM7YZp5OdZx5N4u685X/hmk6YtjimvYXDwfqH
+    ftfsBv4EQIDAQAB
+    -----END PUBLIC KEY-----
